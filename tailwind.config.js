@@ -7,6 +7,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      boxShadow: {
+        box: "0px 5px 0px rgb(16, 33, 42)",
+        "box-silver": "0px 3px 0px rgb(107, 137, 151)",
+      },
       colors: {
         "dark-navy": "#1A2A33",
         "semi-dark-navy": "#1F3641",
