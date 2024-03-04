@@ -13,13 +13,26 @@ export default function Board() {
     tie: 0,
   });
 
+  function resetBoard() {
+    setSquares(Array(9).fill(null));
+    setModalOpen(false);
+    setXIsNext(true);
+  }
+
+  function resetScore() {
+    setScore({
+      x: 0,
+      o: 0,
+      tie: 0,
+    });
+  }
+
   const winner = calculateWinner(squares);
   if (winner && !modalOpen) {
+    const newScore = score;
+    newScore[winner]++;
+    setScore(newScore);
     setModalOpen(true);
-    // setSquares(Array(9).fill(null));
-    // const newScore = score;
-    // newScore[winner]++;
-    // setScore(newScore);
 
     console.log(score);
   }
@@ -41,12 +54,26 @@ export default function Board() {
 
   const handleClose = () => setModalOpen(false);
 
+  function handleQuit() {
+    resetBoard();
+    resetScore();
+  }
+
+  function handleNextRound() {
+    resetBoard();
+  }
+
   const boxes = squares.map((square, index) => (
     <Square value={square} onSquareClick={() => handleClick(index)} />
   ));
   return (
     <div>
-      <Modal open={modalOpen} onClose={handleClose} />
+      <Modal
+        open={modalOpen}
+        onQuit={handleQuit}
+        onNextRound={handleNextRound}
+        winner={winner}
+      />
       <div className="flex items-center justify-between mb-4">
         <div className="w-20">
           <span className="text-light-blue font-black text-3xl ml-1 mr-1">
@@ -58,7 +85,10 @@ export default function Board() {
           <span>{status} TURN</span>
         </div>
         <div className="w-20 flex justify-end">
-          <button className="rounded shadow-box-silver bg-silver outline-none hover:bg-silver-hover text-dark-navy w-8 h-8">
+          <button
+            onClick={handleQuit}
+            className="rounded shadow-box-silver bg-silver outline-none hover:bg-silver-hover text-dark-navy w-8 h-8"
+          >
             <Reset className="block m-auto" />
           </button>
         </div>
@@ -86,6 +116,9 @@ export default function Board() {
 }
 
 function calculateWinner(squares) {
+  if (!squares.some((element) => element === null)) {
+    return "tie";
+  }
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
