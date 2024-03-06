@@ -2,6 +2,7 @@ import { useState } from "react";
 import Square from "./Square";
 import Reset from "./Reset";
 import Modal from "./Modal";
+import Score from "./Score";
 
 export default function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null));
@@ -98,6 +99,7 @@ export default function Board() {
       </div>
       {/* SCORE */}
       <div className="flex justify-between">
+        <Score outcome="X" totalScore={score.x} color='light-yellow' />
         <div>
           <p>X</p>
           <p>{score.x}</p>
