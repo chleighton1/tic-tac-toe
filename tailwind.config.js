@@ -11,6 +11,7 @@ module.exports = {
         box: "0px 5px 0px rgb(16, 33, 42)",
         "box-silver": "0px 3px 0px rgb(107, 137, 151)",
         "box-yellow": "0px 3px 0px rgb(203 139 18)",
+        "box-blue": "0px 3px 0px rgb(17 140 135)",
       },
       colors: {
         "dark-navy": "#1A2A33",

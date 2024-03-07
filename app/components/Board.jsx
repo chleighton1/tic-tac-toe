@@ -3,6 +3,7 @@ import Square from "./Square";
 import Reset from "./Reset";
 import Modal from "./Modal";
 import Score from "./Score";
+import Logo from "./Logo";
 
 export default function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null));
@@ -75,17 +76,12 @@ export default function Board() {
         onNextRound={handleNextRound}
         winner={winner}
       />
-      <div className="flex items-center justify-between mb-4">
-        <div className="w-20">
-          <span className="text-light-blue font-black text-3xl ml-1 mr-1">
-            X
-          </span>
-          <span className="text-light-yellow font-black text-3xl">O</span>
-        </div>
-        <div className="rounded shadow-box text-sm font-semibold text-silver bg-semi-dark-navy w-20 h-8 flex items-center justify-center">
+      <div className="flex items-center justify-between mb-14">
+        <Logo width="w-24" />
+        <div className="rounded shadow-box text-sm font-semibold text-silver bg-semi-dark-navy w-24 h-8 flex items-center justify-center">
           <span>{status} TURN</span>
         </div>
-        <div className="w-20 flex justify-end">
+        <div className="w-24 flex justify-end">
           <button
             onClick={handleQuit}
             className="rounded shadow-box-silver bg-silver outline-none hover:bg-silver-hover text-dark-navy w-8 h-8"
@@ -94,24 +90,12 @@ export default function Board() {
           </button>
         </div>
       </div>
-      <div className="grid grid-cols-3 gap-3 h-full justify-center w-fit">
-        {boxes}
-      </div>
+      <div className="grid grid-cols-3 gap-3 justify-center">{boxes}</div>
       {/* SCORE */}
-      <div className="flex justify-between">
-        <Score outcome="X" totalScore={score.x} color='light-yellow' />
-        <div>
-          <p>X</p>
-          <p>{score.x}</p>
-        </div>
-        <div>
-          <p>TIES</p>
-          <p>{score.tie}</p>
-        </div>
-        <div>
-          <p>O</p>
-          <p>{score.o}</p>
-        </div>
+      <div className="grid grid-cols-3 gap-3 justify-center mt-6">
+        <Score outcome="X" totalScore={score.x} color="bg-light-blue" />
+        <Score outcome="TIE" totalScore={score.tie} color="bg-silver" />
+        <Score outcome="O" totalScore={score.o} color="bg-light-yellow" />
       </div>
     </div>
   );
