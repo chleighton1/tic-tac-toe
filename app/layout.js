@@ -1,6 +1,7 @@
 import { Outfit } from "next/font/google";
 
 import "./globals.css";
+import { Suspense } from "react";
 
 const outfit = Outfit({ subsets: ["latin"] });
 
@@ -13,7 +14,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${outfit.className} bg-dark-navy h-screen`}>
-        {children}
+        <Suspense fallback="loading..">{children}</Suspense>
       </body>
     </html>
   );
