@@ -3,7 +3,7 @@
 import { useSearchParams } from "next/navigation";
 import Board from "../components/Board";
 
-export default function Home({}) {
+export default function Home() {
   const serachParams = useSearchParams();
   const opponant = serachParams.get("opponant");
 

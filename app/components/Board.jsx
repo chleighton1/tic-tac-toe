@@ -110,7 +110,6 @@ export default function Board({ opponant }) {
         </div>
       </div>
       <div className="grid grid-cols-3 gap-3 justify-center">{boxes}</div>
-      {/* SCORE */}
       <div className="grid grid-cols-3 gap-3 justify-center mt-6">
         <Score outcome="X (YOU)" totalScore={score.x} color="bg-light-blue" />
         <Score outcome="TIE" totalScore={score.tie} color="bg-silver" />
