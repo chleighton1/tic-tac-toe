@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import Square from "./Square";
 import Reset from "./Reset";

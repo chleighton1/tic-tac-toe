@@ -1,3 +1,5 @@
+"use client";
+
 export default function Square({ value, onSquareClick }) {
   const textColor = value == "x" ? "text-light-blue" : "text-light-yellow";
   return (
