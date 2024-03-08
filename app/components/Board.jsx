@@ -79,7 +79,11 @@ export default function Board({ opponant }) {
   }
 
   const boxes = squares.map((square, index) => (
-    <Square value={square} onSquareClick={() => handleClick(index)} />
+    <Square
+      value={square}
+      key={index}
+      onSquareClick={() => handleClick(index)}
+    />
   ));
   return (
     <div>
