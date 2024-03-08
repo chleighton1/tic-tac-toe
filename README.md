@@ -26,11 +26,11 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Link](https://github-user-search-rho-ten.vercel.app/)
+- Live Site URL: [Link](https://tic-tac-toe-eta-two.vercel.app/)
 
 ## My process
 
-My first time implementing light and dark mode. I used a combination of Next Themes and Tailwind CSS to style in dark mode. I found this approach very straighforward and will most likely continue to use it for future projects.
+Created with Nextjs using various components to store state of game
 
 ### Built with
 
