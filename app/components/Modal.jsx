@@ -2,7 +2,6 @@ import React from "react";
 
 export default function Modal({ open, onQuit, onNextRound, winner }) {
   if (!open) return null;
-  console.log(winner);
   const textColor = winner == "x" ? "text-light-blue" : "text-light-yellow";
   return (
     <div className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center">
